@@ -61,19 +61,23 @@ class TestClassnames(unittest.TestCase):
         self.assertEqual(class_names("a", [[]]), "a")
 
     def test_handles_all_types_of_truthy_and_falsy_property_values_as_expected(self):
-        self.assertEqual(class_names({
-			None: None,
-			"emptyString": "",
-			"noNumber": None,
-			"zero": 0,
-			"negativeZero": -0,
-			False: False,
-
-			"nonEmptyString": "foobar",
-			"whitespace": ' ',
-			"emptyObject": {},
-			"nonEmptyObject": {"a": 1, "b": 2},
-			"emptyList": [],
-			"nonEmptyList": [1, 2, 3],
-			"greaterZero": 1
-		}), 'nonEmptyString whitespace nonEmptyObject nonEmptyList greaterZero')
+        self.assertEqual(
+            class_names(
+                {
+                    None: None,
+                    "emptyString": "",
+                    "noNumber": None,
+                    "zero": 0,
+                    "negativeZero": -0,
+                    False: False,
+                    "nonEmptyString": "foobar",
+                    "whitespace": " ",
+                    "emptyObject": {},
+                    "nonEmptyObject": {"a": 1, "b": 2},
+                    "emptyList": [],
+                    "nonEmptyList": [1, 2, 3],
+                    "greaterZero": 1,
+                }
+            ),
+            "nonEmptyString whitespace nonEmptyObject nonEmptyList greaterZero",
+        )
