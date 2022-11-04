@@ -37,7 +37,7 @@ jobs:
         uses: mindsers/changelog-reader-action@v2
         with:
           validation_depth: 10
-          version: ${{ github.ref_name }}
+          version: ${GITHUB_REF_NAME#v}
           path: ./CHANGELOG.md
 
       - uses: actions/setup-python@v2
@@ -53,7 +53,7 @@ jobs:
         run: >-
           python -m build
 
-      - name: create github release
+      - name: Create Github release
         id: create_release
         uses: softprops/action-gh-release@v1
         env:
@@ -64,7 +64,7 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: publish to PyPI
+      - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           user: __token__
