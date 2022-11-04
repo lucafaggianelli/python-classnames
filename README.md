@@ -7,6 +7,8 @@
 
 Utility to create CSS class strings from a multitude of values without poking around with string templates and lengthy logic.
 
+This project is a Python porting of the JS library [`classnames`](https://github.com/JedWatson/classnames)
+
 ## Show me the code!
 
 ```bash
