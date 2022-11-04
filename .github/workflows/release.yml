@@ -37,7 +37,7 @@ jobs:
         uses: mindsers/changelog-reader-action@v2
         with:
           validation_depth: 10
-          version: ${GITHUB_REF#refs/tags/v}
+          version: ${{ github.ref_name }}
           path: ./CHANGELOG.md
 
       - uses: actions/setup-python@v2
